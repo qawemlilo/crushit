@@ -28,5 +28,6 @@
     "cheerio": "",
     "yuglify": "",
     "commander": ""
-  }
+  },
+  "bin": { "parse": "./bin/parse" }
 }
