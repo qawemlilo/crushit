@@ -1,0 +1,32 @@
+{
+  "name": "crushit",
+  "version": "0.0.1",
+  "description": "Script minifier for production",
+  "main": "lib/main.js",
+  "bin": {
+    "crushit": "main.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qawemlilo/crushit"
+  },
+  "keywords": [
+    "minifier"
+  ],
+  "author": "Qawelesizwe Mlilo",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "",
+    "should": "",
+    "request": "",
+    "cheerio": "",
+    "yuglify": "",
+    "commander": ""
+  }
+}
