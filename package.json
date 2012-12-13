@@ -10,7 +10,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test/*.js"
+    "test": "mocha test/main.js"
   },
   "repository": {
     "type": "git",
