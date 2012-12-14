@@ -1,6 +1,6 @@
 {
   "name": "crushit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Script minifier for production",
   "main": "lib/main.js",
   "bin": {
@@ -21,13 +21,16 @@
   ],
   "author": "Qawelesizwe Mlilo",
   "license": "MIT",
-  "devDependencies": {
-    "mocha": "",
-    "should": "",
-    "request": "",
-    "cheerio": "",
-    "yuglify": "",
-    "commander": ""
+  "dependencies": {
+    "request": "~2.12.0",
+    "cheerio": "~0.10.3",
+    "yuglify": "~0.1.1",
+    "commander": "~1.1.1"
   },
-  "bin": { "parse": "./bin/parse" }
+  "devDependencies": {
+    "mocha": "~1.7.4",
+    "should": "~1.2.1"
+  },
+  "bin": { "crushit": "./bin/crushit" },
+  "engine": "node >= 0.8.9"
 }

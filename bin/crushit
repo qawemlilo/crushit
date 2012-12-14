@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+var crushIt = require('../lib/main'),
+    commander = require('commander');
+    
+commander
+  .version('0.0.1')
+  .option('-s, --site [url]', 'Reads scripts from the given website address [url]')
+  .parse(process.argv);
+  
+console.log('Reading scripts from: ');
+console.log('  - %s', commander.site);
+console.log('==========================================================');
+
+crushIt.init(commander.site, process.cwd());

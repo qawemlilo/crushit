@@ -1,16 +1,20 @@
 
-var should = require('should');
-var crushIt = require('../lib/main');
+var should = require('should'),
+    crushIt = require('../lib/main');
 
 describe('crushIt', function() {
-    describe('#parseUrl', function() {
+    
+    /*
+        parseUrl is a method that removes a trailing slash in urls     
+    */
+    describe('#parseUrl - with a trailing slash', function() {
         it('should return "https://github.com/qawemlilo/crushit"', function() {
             var result = crushIt.parseUrl('https://github.com/qawemlilo/crushit/');
             result.should.eql("https://github.com/qawemlilo/crushit");
         });
     });
     
-    describe('with url https://github.com/qawemlilo/crushit', function() {
+    describe('#parseUrl  - without a trailing slash', function() {
         it('should return "https://github.com/qawemlilo/crushit"', function() {
             var result = crushIt.parseUrl('https://github.com/qawemlilo/crushit');
             result.should.eql("https://github.com/qawemlilo/crushit");
@@ -18,14 +22,17 @@ describe('crushIt', function() {
     });
     
     
-    describe('with no url', function() {
+    describe('with no arguments', function() {
         it('should return "https://github.com/qawemlilo/crushit"', function() {
             var result = crushIt.parseUrl();
             result.should.be.false;
         });
     });
 
-    
+
+    /*
+        #fileName is a method that takes an absolute file url and returns the file name     
+    */    
     describe('#fileName without arguments', function() {
         it('should return false', function() {
             var result = crushIt.fileName();
@@ -56,7 +63,10 @@ describe('crushIt', function() {
         });
     });
 
-    
+
+    /*
+        #getScripts is a method that takes a website address and returns an array of all scripts
+    */       
     describe('#getScripts without initialising module', function() {
         it('should fail', function(done) {
             crushIt.getScripts(function (error, scripts) {
@@ -68,7 +78,7 @@ describe('crushIt', function() {
     });
     
     describe('#getScripts lets load a local website http://anders.janmyr.com/2012/04/writing-node-module.html', function() {
-        it('should laod all scripts ', function(done) {
+        it('should load all scripts ', function(done) {
             crushIt.init('http://anders.janmyr.com/2012/04/writing-node-module.html');
             crushIt.getScripts(function (error, scripts) {
                 error.should.be.false;
