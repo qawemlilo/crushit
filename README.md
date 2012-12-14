@@ -1,1 +1,1 @@
-# CrushIt - production script minifier
+# CrushIt

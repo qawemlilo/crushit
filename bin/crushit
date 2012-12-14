@@ -5,7 +5,7 @@ var crushIt = require('../lib/main'),
     
 commander
   .version('0.0.1')
-  .option('-s, --site [url]', 'Reads scripts from the given website address [url]')
+  .option('-s, --site [url]', 'Loads, compiles and compresses scripts from given a website [url]')
   .parse(process.argv);
   
 console.log('Reading scripts from: ');

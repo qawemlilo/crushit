@@ -77,9 +77,9 @@ describe('crushIt', function() {
         });
     });
     
-    describe('#getScripts lets load a local website http://anders.janmyr.com/2012/04/writing-node-module.html', function() {
+    describe('#getScripts lets load a local website http://localhost/phpmyadmin', function() {
         it('should load all scripts ', function(done) {
-            crushIt.init('http://anders.janmyr.com/2012/04/writing-node-module.html');
+            crushIt.init('http://localhost/phpmyadmin');
             crushIt.getScripts(function (error, scripts) {
                 error.should.be.false;
                 scripts.should.not.eql([]);
