@@ -6,10 +6,12 @@ Ok here is the deal, I am currently developing a JavaScript intensive applicatio
 # Install (npm)
 ```
 npm install -g crushit
+```
 
 # CLI Usage
 ```
 crushit -s [ website (url) ]
+```
 
 
 # To Do
