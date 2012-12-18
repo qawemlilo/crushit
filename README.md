@@ -10,7 +10,7 @@ npm install -g crushit
 
 # CLI Usage
 ```
-crushit -s [ website (url) ]
+crushit -s [ website(url) ]
 
 Note: does not compile any file name that has a substring of 'modernizr'. 
 Modernizr should be left alone in the header section of an html document.
