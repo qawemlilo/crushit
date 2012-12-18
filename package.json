@@ -1,6 +1,6 @@
 {
   "name": "crushit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Script minifier for production",
   "main": "lib/main.js",
   "bin": {
@@ -17,7 +17,7 @@
     "url": "https://github.com/qawemlilo/crushit.git"
   },
   "keywords": [
-    "minifier"
+    "script minifier", "compressor", "optimizer"
   ],
   "author": "Qawelesizwe Mlilo",
   "license": "MIT",

@@ -1,15 +1,35 @@
 #!/usr/bin/env node
 
 var crushIt = require('../lib/main'),
-    commander = require('commander');
+    commander = require('commander')
+    website = '';
     
 commander
   .version('0.0.1')
-  .option('-s, --site [url]', 'Loads, compiles and compresses scripts from given a website [url]')
+  .usage('[options] <url ...>')
+  .option('-m, --modernizr', 'include Modernizr if detected')
   .parse(process.argv);
-  
-console.log('Reading scripts from: ');
-console.log('  - %s', commander.site);
-console.log('==========================================================');
+ 
+if (commander.args.length > 0) {
+    website = commander.args[0];
+    
+    console.log('Reading scripts from: ');
+    console.log('  - %s', website); 
+    console.log('==========================================================>>');
+    
+    
+    crushIt.init({
+        website: website,
+        
+        directory: process.cwd(), 
+        
+        modernizr: !!(commander.modernizr)
+    });    
+}
+else {
+    commander.help();
+}
 
-crushIt.init(commander.site, process.cwd());
+
+
+
