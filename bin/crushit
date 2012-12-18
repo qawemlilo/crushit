@@ -7,7 +7,8 @@ var crushIt = require('../lib/main'),
 commander
   .version('0.0.1')
   .usage('[options] <url ...>')
-  .option('-m, --modernizr', 'include Modernizr if detected')
+  .option('-m, --minify', 'Minify output')
+  .option('-z, --modernizr', 'include Modernizr if detected')
   .parse(process.argv);
  
 if (commander.args.length > 0) {
@@ -23,7 +24,9 @@ if (commander.args.length > 0) {
         
         directory: process.cwd(), 
         
-        modernizr: !!(commander.modernizr)
+        modernizr: !!(commander.modernizr),
+        
+        minify: !!(commander.minify)
     });    
 }
 else {

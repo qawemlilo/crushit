@@ -1,6 +1,6 @@
 # CrushIt
 
-Ok here is the deal, I am currently developing a JavaScript intensive application <https://github.com/qawemlilo/nodebooks> and my front-end code is organised into modules of many different javaScript files. I wrote CrushIt so that I can easily compile and compress all scripts into one file that I can use in production without messing up my local development structure. 
+CrushIt is a commandline tool for compiling all javascript scripts from a web page and minifying them into a single file. I wrote CrushIt to make it easy to optimize my code for use in production. 
 
 
 # Install (npm)
@@ -8,12 +8,20 @@ Ok here is the deal, I am currently developing a JavaScript intensive applicatio
 npm install -g crushit
 ```
 
-# CLI Usage
+# Usage
 ```
-crushit -s [ website(url) ]
+#Basic usage
+crushit [options] [url]
 
-Note: does not compile any file name that has a substring of 'modernizr'. 
-Modernizr should be left alone in the header section of an html document.
+# Include Modernizr with compiled scripts 
+crushit -z [url]
+
+
+# Minify output script 
+crushit -m [url]
+
+# Include Modernizr with compiled scripts  and minify output script
+crushit -mz [url]
 ```
 
 
