@@ -136,11 +136,11 @@ describe('crushIt', function() {
     
     
     
-    describe('#getScripts lets load a local website http://localhost/phpmyadmin', function() {
-        it('should load all scripts ', function(done) {
+    describe('#getScript', function() {
+        it('should load all scripts from http://www.rflab.co.za', function(done) {
             crushIt.init({
-                website: 'http://localhost/phpmyadmin', 
-                directory: 'C:\Documents and Settings\Qawe Mlilo\Desktop'
+                website: 'http://www.rflab.co.za', 
+                directory: '/'
             });
             
             crushIt.getScripts(function (error, scripts) {
