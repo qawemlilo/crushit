@@ -10,8 +10,9 @@ npm install -g crushit
 
 # Usage
 ```
-#Basic usage
+# Basic usage
 crushit [options] [url]
+
 
 # Include Modernizr with compiled scripts 
 crushit -z [url]
@@ -20,14 +21,20 @@ crushit -z [url]
 # Minify output script 
 crushit -m [url]
 
+
 # Include Modernizr with compiled scripts  and minify output script
 crushit -mz [url]
 ```
 
+# Example
+```
+# Optimizing apple.com scripts
+crushit -m http://apple.com/
+```
 
 # To Do
 
-- Add css support
+- Add css minification
 - Write better docs
 - Add login options to scrap logged view
 

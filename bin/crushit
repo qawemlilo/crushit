@@ -21,11 +21,8 @@ if (commander.args.length > 0) {
     
     crushIt.init({
         website: website,
-        
         directory: process.cwd(), 
-        
         modernizr: !!(commander.modernizr),
-        
         minify: !!(commander.minify)
     });    
 }

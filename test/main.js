@@ -3,6 +3,36 @@ var should = require('should'),
     crushIt = require('../lib/main');
 
 describe('crushIt', function() {
+
+    /*
+        init is a method that initializes the app     
+    */
+    describe('#init', function() {
+        it('should fail', function() {
+            var result = crushIt.init({});
+            result.should.be.false;
+        });
+    });
+    
+    
+    
+    
+    
+    
+    /*
+        onComplete    
+    */
+    describe('#onComplete', function() {
+        it('should fail', function() {
+            var result = crushIt.onComplete();
+            result.should.be.false;
+        });
+    });
+    
+    
+    
+    
+    
     
     /*
         parseUrl is a method that removes a trailing slash in urls     
@@ -14,12 +44,20 @@ describe('crushIt', function() {
         });
     });
     
+    
+    
+    
+    
     describe('#parseUrl  - without a trailing slash', function() {
         it('should return "https://github.com/qawemlilo/crushit"', function() {
             var result = crushIt.parseUrl('https://github.com/qawemlilo/crushit');
             result.should.eql("https://github.com/qawemlilo/crushit");
         });
     });
+    
+    
+    
+    
     
     
     describe('with no arguments', function() {
@@ -29,6 +67,10 @@ describe('crushIt', function() {
         });
     });
 
+    
+    
+    
+    
 
     /*
         #fileName is a method that takes an absolute file url and returns the file name     
@@ -40,12 +82,20 @@ describe('crushIt', function() {
         });
     });
     
+    
+    
+    
+    
     describe('#fileName with absolute url', function() {
         it('should return file name', function() {
             var result = crushIt.fileName('http://localhost:3003/script.js');
             result.should.eql('script.js');
         });
     });
+    
+    
+    
+    
     
     
     describe('#fileName with file name', function() {
@@ -62,6 +112,10 @@ describe('crushIt', function() {
             result.should.eql('script.js');
         });
     });
+    
+    
+    
+    
 
 
     /*
@@ -77,9 +131,18 @@ describe('crushIt', function() {
         });
     });
     
+    
+    
+    
+    
+    
     describe('#getScripts lets load a local website http://localhost/phpmyadmin', function() {
         it('should load all scripts ', function(done) {
-            crushIt.init('http://localhost/phpmyadmin');
+            crushIt.init({
+                website: 'http://localhost/phpmyadmin', 
+                directory: 'C:\Documents and Settings\Qawe Mlilo\Desktop'
+            });
+            
             crushIt.getScripts(function (error, scripts) {
                 error.should.be.false;
                 scripts.should.not.eql([]);
