@@ -16,29 +16,28 @@ npm install -g crushit
 crushit [options] [url]
 
 
-# Include Modernizr with compiled scripts 
-crushit -z [url]
+# Beautify code 
+crushit -b [url]
 
 
-# Minify output script 
-crushit -m [url]
+# Use strict parser mode 
+crushit -s [url]
 
 
-# Include Modernizr with compiled scripts  and minify output script
-crushit -mz [url]
+# Beautify code and use strict parser mode
+crushit -bs [url]
 ```
 
 # Example
 ```
 # Optimizing apple.com scripts
-crushit -m http://apple.com/
+crushit http://www.rflab.co.za
 ```
 
 # To Do
 
 - Add css minification
 - Write better docs
-- Add login options to scrap logged view
 
 # License
 
