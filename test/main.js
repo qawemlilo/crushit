@@ -18,22 +18,6 @@ describe('crushIt', function() {
     
     
     
-    
-    /*
-        onComplete    
-    */
-    describe('#onComplete', function() {
-        it('should fail', function() {
-            var result = crushIt.onComplete();
-            result.should.be.false;
-        });
-    });
-    
-    
-    
-    
-    
-    
     /*
         parseUrl is a method that removes a trailing slash in urls     
     */
@@ -73,11 +57,11 @@ describe('crushIt', function() {
     
 
     /*
-        #fileName is a method that takes an absolute file url and returns the file name     
+        #getFileName is a method that takes an absolute file url and returns the file name     
     */    
-    describe('#fileName without arguments', function() {
+    describe('#getFileName without arguments', function() {
         it('should return false', function() {
-            var result = crushIt.fileName();
+            var result = crushIt.getFileName();
             result.should.be.false;
         });
     });
@@ -86,9 +70,9 @@ describe('crushIt', function() {
     
     
     
-    describe('#fileName with absolute url', function() {
+    describe('#getFileName with absolute url', function() {
         it('should return file name', function() {
-            var result = crushIt.fileName('http://localhost:3003/script.js');
+            var result = crushIt.getFileName('http://localhost:3003/script.js');
             result.should.eql('script.js');
         });
     });
@@ -98,17 +82,17 @@ describe('crushIt', function() {
     
     
     
-    describe('#fileName with file name', function() {
+    describe('#getFileName with file name', function() {
         it('should return file name', function() {
-            var result = crushIt.fileName('script.js');
+            var result = crushIt.getFileName('script.js');
             result.should.eql('script.js');
         });
     });
     
     
-    describe('#fileName with leading slash', function() {
+    describe('#getFileName with leading slash', function() {
         it('should return file name', function() {
-            var result = crushIt.fileName('/script.js');
+            var result = crushIt.getFileName('/script.js');
             result.should.eql('script.js');
         });
     });
@@ -119,13 +103,12 @@ describe('crushIt', function() {
 
 
     /*
-        #getScripts is a method that takes a website address and returns an array of all scripts
+        #loadWebPage is a method that takes a website address and returns an array of all scripts
     */       
-    describe('#getScripts without initialising module', function() {
+    describe('#loadWebPage without initialising module', function() {
         it('should fail', function(done) {
-            crushIt.getScripts(function (error, scripts) {
+            crushIt.loadWebPage(function (error) {
                 error.should.be.true;
-                scripts.should.eql([]);
                 done();
             });
         });
@@ -136,18 +119,51 @@ describe('crushIt', function() {
     
     
     
-    describe('#getScript', function() {
+    describe('#loadWebPage', function() {
         it('should load all scripts from http://www.rflab.co.za', function(done) {
             crushIt.init({
                 website: 'http://www.rflab.co.za', 
-                directory: '/'
+                directory: '/', 
+                parserOptions: {
+                    strict: false
+                },
+                
+                beautify: false
             });
             
-            crushIt.getScripts(function (error, scripts) {
-                error.should.be.false;
-                scripts.should.not.eql([]);
+            crushIt.loadWebPage(function (fn) {
                 done();
             });
+        });
+    });
+    
+    
+    
+    describe('#processOptions', function() {
+        it('should copy properties of object ', function() {
+            crushIt.processOptions({
+                website: 'http://www.rflab.co.za', 
+                directory: '/', 
+                parserOptions: {
+                    strict: false
+                },
+                
+                beautify: false
+            });
+            
+            crushIt.website.should.eql('http://www.rflab.co.za');
+            crushIt.directory.should.eql('/');
+            crushIt.beautify.should.be.false;
+            crushIt.parserOptions.strict.should.be.false;
+        });
+    });
+    
+    
+    
+    
+    describe('#echoMsg', function() {
+        it('should echo "Hello Nodesters!!" ', function() {
+            crushIt.echoMsg('Hello Nodesters!!');
         });
     });
 });

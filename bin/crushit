@@ -7,8 +7,8 @@ var crushIt = require('../lib/main'),
 commander
   .version('0.0.1')
   .usage('[options] <url ...>')
-  .option('-m, --minify', 'Minify output')
-  .option('-z, --modernizr', 'include Modernizr if detected')
+  .option('-s, --strict', 'Use strict parser mode. Default [false]')
+  .option('-b, --beautify', 'Beautify code. Default [false]') 
   .parse(process.argv);
  
 if (commander.args.length > 0) {
@@ -16,14 +16,16 @@ if (commander.args.length > 0) {
     
     console.log('Reading scripts from: ');
     console.log('  - %s', website); 
-    console.log('==========================================================>>');
+    console.log('=======================================================================>>');
     
     
     crushIt.init({
         website: website,
         directory: process.cwd(), 
-        modernizr: !!(commander.modernizr),
-        minify: !!(commander.minify)
+        parserOptions: {
+            strict: !!(commander.strict)
+        },
+        beautify: !!(commander.beautify)
     });    
 }
 else {

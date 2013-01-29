@@ -1,6 +1,6 @@
 {
   "name": "crushit",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Script minifier for production",
   "main": "lib/main.js",
   "bin": {
@@ -24,7 +24,7 @@
   "dependencies": {
     "request": "~2.12.0",
     "cheerio": "~0.10.3",
-    "yuglify": "~0.1.1",
+    "uglify-js": "latest",
     "commander": "~1.1.1"
   },
   "devDependencies": {
