@@ -1,6 +1,6 @@
 # CrushIt
 
-CrushIt is a commandline tool for compiling all javascript scripts from a web page and minifying them into a single file. I wrote CrushIt to make it easy to optimize my code for use in production. 
+CrushIt is a commandline tool for compiling, concatenating, and minifying scripts from a web page. I wrote CrushIt to make it easy to optimize my code for use in production. 
 
 [![Build Status](https://travis-ci.org/qawemlilo/crushit.png)](https://travis-ci.org/qawemlilo/crushit)
 
