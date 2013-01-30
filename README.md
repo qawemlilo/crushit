@@ -36,24 +36,22 @@ crushit http://www.rflab.co.za
 
 # You can also include CrushIt in your node programs
 ```
-var crushit = require('crushit');
+var crushit = require("crushit");
 
 crushit.crushScripts(url, options);
 
-
 # options
-```
-  beatify    - Beautify output code
-  strict     - Use strict parser mode
-  onComplete - Callback function that takes on argument
+beatify    - Beautify output code
+strict     - Use strict parser mode
+onComplete - Callback function that takes on argument
 ```
 
 
 # Program Example
 ```javascript
-var crushit = require('crushit');
+var crushit = require("crushit");
 
-crushit.crushScripts('http://www.rflab.co.za', {
+crushit.crushScripts("http://www.rflab.co.za", {
     beatify: true,
     
     strict: true,
