@@ -120,9 +120,9 @@ describe('crushIt', function() {
     
     
     describe('#loadWebPage', function() {
-        it('should load all scripts from http://www.rflab.co.za', function(done) {
+        it('should load all scripts from http://www.apple.com', function(done) {
             crushIt.init({
-                website: 'http://www.rflab.co.za', 
+                website: 'http://www.apple.com', 
                 directory: '/', 
                 parserOptions: {
                     strict: false

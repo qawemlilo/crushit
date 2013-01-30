@@ -30,9 +30,17 @@ crushit -bs [url]
 
 # Example
 ```
-# Optimizing apple.com scripts
+# Compiling scripts from my website
 crushit http://www.rflab.co.za
 ```
+
+# You can also include CrushIt in your node programs
+```
+var crushit = require('crushit');
+
+crushit.optimize();
+```
+
 
 # To Do
 
