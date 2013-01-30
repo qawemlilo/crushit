@@ -49,7 +49,7 @@ crushit.crushScripts(url, options);
 ```
 
 
-# Pragram Example
+# Program Example
 ```javascript
 var crushit = require('crushit');
 
