@@ -16,7 +16,7 @@ npm install -g crushit
 crushit [options] [url]
 
 
-# Beautify code 
+# Beautify output code 
 crushit -b [url]
 
 
@@ -24,11 +24,11 @@ crushit -b [url]
 crushit -s [url]
 
 
-# Beautify code and use strict parser mode
+# Beautify output code and use strict parser mode
 crushit -bs [url]
 ```
 
-# Example
+# CLI Example
 ```
 # Compiling scripts from my website
 crushit http://www.rflab.co.za
@@ -38,7 +38,30 @@ crushit http://www.rflab.co.za
 ```
 var crushit = require('crushit');
 
-crushit.optimize();
+crushit.crushScripts(url, options);
+
+
+# options
+```
+  beatify    - Beautify output code
+  strict     - Use strict parser mode
+  onComplete - Callback function that takes on argument
+```
+
+
+# Pragram Example
+```javascript
+var crushit = require('crushit');
+
+crushit.crushScripts('http://www.rflab.co.za', {
+    beatify: true,
+    
+    strict: true,
+    
+    onComplete: function (code) {
+       console.log(code);
+    }
+});
 ```
 
 
