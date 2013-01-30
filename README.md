@@ -52,7 +52,7 @@ onComplete - Callback function that takes on argument
 var crushit = require("crushit");
 
 crushit.crushScripts("http://www.rflab.co.za", {
-    beatify: true,
+    beautify: true,
     
     strict: true,
     
