@@ -7,8 +7,9 @@ var crushIt = require('../lib/main'),
 commander
   .version('0.0.1')
   .usage('[options] <url ...>')
-  .option('-s, --strict', 'Use strict parser mode. Default [false]')
-  .option('-b, --beautify', 'Beautify code. Default [false]') 
+  .option('-s, --strict', 'Use strict parser mode? Default [false]')
+  .option('-b, --beautify', 'Beautify code? Default [false]') 
+  .option('-c, --comments', 'Include comments in output code? Default [false]')
   .parse(process.argv);
  
 if (commander.args.length > 0) {
@@ -21,7 +22,8 @@ if (commander.args.length > 0) {
     
     crushIt.init({
         website: website,
-        directory: process.cwd(), 
+        directory: process.cwd(),
+        comments: !!(commander.comments),        
         parserOptions: {
             strict: !!(commander.strict)
         },
