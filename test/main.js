@@ -123,7 +123,8 @@ describe('crushIt', function() {
         it('should load all scripts from http://www.apple.com', function(done) {
             crushIt.init({
                 website: 'http://www.apple.com', 
-                directory: '/', 
+                directory: '/',
+                comments: false,                
                 parserOptions: {
                     strict: false
                 },
@@ -144,6 +145,7 @@ describe('crushIt', function() {
             crushIt.processOptions({
                 website: 'http://www.rflab.co.za', 
                 directory: '/', 
+                comments: false,
                 parserOptions: {
                     strict: false
                 },

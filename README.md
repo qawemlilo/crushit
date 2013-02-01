@@ -20,12 +20,16 @@ crushit [options] [url]
 crushit -b [url]
 
 
+# Include comments in the output code
+crushit -c [url]
+
+
 # Use strict parser mode 
 crushit -s [url]
 
 
-# Beautify output code and use strict parser mode
-crushit -bs [url]
+# Beautify output code, use strict parser mode and include comments
+crushit -bsc [url]
 ```
 
 # CLI Example
@@ -43,12 +47,13 @@ crushit.crushScripts(url, options);
 # options
 beatify    - Beautify output code
 strict     - Use strict parser mode
+comments   - Include comments in the output code
 onComplete - Callback function that takes on argument
 ```
 
 
 # Program Example
-```javascript
+```
 var crushit = require("crushit");
 
 crushit.crushScripts("http://www.rflab.co.za", {
@@ -56,8 +61,15 @@ crushit.crushScripts("http://www.rflab.co.za", {
     
     strict: true,
     
-    onComplete: function (code) {
-       console.log(code);
+    comments: true,
+    
+    onComplete: function (error, code) {
+        if (error) {
+            console.log(error.msg);   
+        }
+        else {
+            console.log(code);
+        }
     }
 });
 ```

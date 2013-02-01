@@ -11,12 +11,15 @@ describe('CrushIt', function() {
                 
                 strict: false, 
                 
-                onComplete: function(code) {
-                    if (code) {
-                        console.log('Success! Custon onComplete method called!'); 
+                onComplete: function(error, code) {
+                    var logs;
+                    
+                    if (error) {
+                        console.log(error.msg); 
                     }
                     else {
-                        console.log('Error!! Custon onComplete method called!');
+                        console.log('Success! Custon onComplete method called!');
+                        CrushIt.getLogs().should.not.be.empty;
                     }
                     done();
                 }
@@ -27,7 +30,10 @@ describe('CrushIt', function() {
     
     describe('#crushScripts without options specified', function() {
         it('should load all scripts from http://www.rflab.co.za', function(done) {
-            CrushIt.crushScripts('http://www.rflab.co.za');
+            var result = CrushIt.crushScripts('http://www.rflab.co.za');
+            
+            result.should.be.false;
+            
             done();
         });
     });
