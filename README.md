@@ -5,40 +5,40 @@ CrushIt is a commandline tool for compiling, concatenating, and minifying script
 [![Build Status](https://travis-ci.org/qawemlilo/crushit.png)](https://travis-ci.org/qawemlilo/crushit)
 
 
-# Install (npm)
+## Install (npm)
 ```
 npm install -g crushit
 ```
 
-# Usage
+## Usage
 ```
 # Basic usage
 crushit [options] [url]
 
 
-# Beautify output code 
+## Beautify output code 
 crushit -b [url]
 
 
-# Include comments in the output code
+## Include comments in the output code
 crushit -c [url]
 
 
-# Use strict parser mode 
+## Use strict parser mode 
 crushit -s [url]
 
 
-# Beautify output code, use strict parser mode and include comments
+## Beautify output code, use strict parser mode and include comments
 crushit -bsc [url]
 ```
 
-# CLI Example
+## CLI Example
 ```
 # Compiling scripts from my website
 crushit http://www.rflab.co.za
 ```
 
-# You can also include CrushIt in your node programs
+## You can also include CrushIt in your node programs
 ```
 var crushit = require("crushit");
 
@@ -52,7 +52,7 @@ onComplete - Callback function that takes on argument
 ```
 
 
-# Program Example
+## Program Example
 ```
 var crushit = require("crushit");
 
@@ -75,12 +75,12 @@ crushit.crushScripts("http://www.rflab.co.za", {
 ```
 
 
-# To Do
+## To Do
 
 - Add css minification
 - Write better docs
 
-# License
+## License
 
 (MIT License)
 
