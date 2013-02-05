@@ -1,6 +1,6 @@
 {
   "name": "crushit",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "Script minifier for production",
   "main": "index.js",
   "bin": {
