@@ -3,7 +3,8 @@ var should = require('should'),
     crushIt = require('../lib/main');
 
 describe('crushIt', function() {
-
+    "use strict";
+    
     /*
         init is a method that initializes the app     
     */
@@ -41,11 +42,8 @@ describe('crushIt', function() {
             crushIt.init({
                 website: 'http://www.apple.com', 
                 directory: '/',
-                comments: false,                
-                parserOptions: {
-                    strict: false
-                },
-                
+                comments: false,
+                strict: false,
                 beautify: false
             });
             
@@ -63,17 +61,14 @@ describe('crushIt', function() {
                 website: 'http://www.rflab.co.za', 
                 directory: '/', 
                 comments: false,
-                parserOptions: {
-                    strict: false
-                },
-                
+                strict: false,
                 beautify: false
             });
             
             crushIt.website.should.eql('http://www.rflab.co.za');
             crushIt.directory.should.eql('/');
             crushIt.beautify.should.be.false;
-            crushIt.parserOptions.strict.should.be.false;
+            crushIt.strict.should.be.false;
         });
     });
     
