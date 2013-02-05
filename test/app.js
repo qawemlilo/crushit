@@ -7,7 +7,9 @@ describe('CrushIt', function() {
     describe('#crushScripts with options specified', function() {
         it('should load all scripts from http://www.google.com and call my custom onComplete method', function(done) {
             CrushIt.crushScripts('http://www.google.com', {
-                beautify: false, 
+                beautify: false,
+                
+                comments: false,
                 
                 strict: false, 
                 
