@@ -43,7 +43,6 @@ describe('crushIt', function() {
                 website: 'http://www.apple.com', 
                 directory: '/',
                 comments: false,
-                strict: false,
                 beautify: false
             });
             
@@ -61,7 +60,6 @@ describe('crushIt', function() {
                 website: 'http://www.rflab.co.za', 
                 directory: '/', 
                 comments: false,
-                strict: false,
                 beautify: false
             });
             

@@ -24,12 +24,12 @@ crushit -b [url]
 crushit -c [url]
 
 
-## Use strict parser mode 
-crushit -s [url]
+## Perform maximum optimisation
+crushit -m [url]
 
 
-## Beautify output code, use strict parser mode and include comments
-crushit -bsc [url]
+## Beautify output code and include comments
+crushit -bc [url]
 ```
 
 ## CLI Example
@@ -46,7 +46,7 @@ crushit.crushScripts(url, options);
 
 # options
 beatify    - Beautify output code
-strict     - Use strict parser mode
+max     - Perform maximum optimisation
 comments   - Include comments in the output code
 onComplete - Callback function that takes on argument
 ```
@@ -59,7 +59,7 @@ var crushit = require("crushit");
 crushit.crushScripts("http://www.rflab.co.za", {
     beautify: true,
     
-    strict: true,
+    max: false,
     
     comments: true,
     

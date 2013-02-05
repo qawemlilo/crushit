@@ -11,7 +11,7 @@ describe('CrushIt', function() {
                 
                 comments: false,
                 
-                strict: false, 
+                max: false, 
                 
                 onComplete: function(error, code) {
                     var logs;

@@ -7,9 +7,8 @@ var crushIt = require('../lib/main'),
 commander
   .version('0.0.1')
   .usage('[options] <url ...>')
-  .option('-s, --strict', 'Use strict parser mode? Default [false]')
   .option('-b, --beautify', 'Beautify code? Default [false]')
-  .option('-x, --max', 'Perform maximum optimisation? Default [false]')   
+  .option('-m, --max', 'Perform maximum optimisation? Default [false]')   
   .option('-c, --comments', 'Include comments in output? Default [false]')
   .parse(process.argv);
  
