@@ -66,7 +66,7 @@ describe('crushIt', function() {
             crushIt.website.should.eql('http://www.rflab.co.za');
             crushIt.directory.should.eql('/');
             crushIt.beautify.should.be.false;
-            crushIt.strict.should.be.false;
+            crushIt.comments.should.be.false;
         });
     });
     
