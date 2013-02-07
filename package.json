@@ -1,8 +1,8 @@
 {
   "name": "crushit",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Script minifier for production",
-  "main": "index.js",
+  "main": "lib/main.js",
   "directories": {
     "test": "test"
   },
@@ -24,10 +24,11 @@
     "uglify-js": "~2.2.3",
     "commander": "~1.1.1"
   },
+  "preferGlobal": true,
   "devDependencies": {
     "mocha": "~1.7.4",
     "should": "~1.2.1"
   },
-  "bin": { "crushit": "./bin/crushit" },
+  "bin": { "crushit": "bin/crushit" },
   "engine": "node >= 0.8.9"
 }
