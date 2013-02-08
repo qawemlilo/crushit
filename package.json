@@ -2,7 +2,7 @@
   "name": "crushit",
   "version": "0.2.4",
   "description": "Script minifier for production",
-  "main": "lib/main.js",
+  "main": "lib/app.js",
   "directories": {
     "test": "test"
   },
