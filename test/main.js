@@ -57,13 +57,13 @@ describe('crushIt', function() {
     describe('#processOptions', function() {
         it('should copy properties of object ', function() {
             crushIt.processOptions({
-                website: 'http://www.rflab.co.za', 
+                website: 'http://www.google.co.za', 
                 directory: '/', 
                 comments: false,
                 beautify: false
             });
             
-            crushIt.website.should.eql('http://www.rflab.co.za');
+            crushIt.website.should.eql('http://www.google.co.za');
             crushIt.directory.should.eql('/');
             crushIt.beautify.should.be.false;
             crushIt.comments.should.be.false;

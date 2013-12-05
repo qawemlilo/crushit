@@ -3,10 +3,10 @@ var should = require('should'),
     CrushIt = require('../index');
 
 describe('CrushIt', function() {
-
+    /*
     describe('#crushScripts with options specified', function() {
-        it('should load all scripts from http://www.google.com and call my custom onComplete method', function(done) {
-            CrushIt.crushScripts('http://www.google.com', {
+        it('should load all scripts from http://www.google.co.za and call my custom onComplete method', function(done) {
+            CrushIt.crushScripts('http://www.google.co.za', {
                 beautify: false,
                 
                 comments: false,
@@ -27,12 +27,12 @@ describe('CrushIt', function() {
                 }
             });
         });
-    });
+    });*/
     
     
     describe('#crushScripts without options specified', function() {
-        it('should load all scripts from http://www.rflab.co.za', function(done) {
-            var result = CrushIt.crushScripts('http://www.rflab.co.za');
+        it('should load all scripts from http://www.google.co.za', function(done) {
+            var result = CrushIt.crushScripts('http://www.google.co.za');
             
             result.should.be.false;
             

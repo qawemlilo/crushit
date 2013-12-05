@@ -1,8 +1,8 @@
 {
   "name": "crushit",
   "version": "0.2.5",
-  "description": "Script minifier for production",
-  "main": "lib/app.js",
+  "description": "Crushit is a build tool for concatenating and minifying your JavaScipt for production",
+  "main": "bin/crushit",
   "directories": {
     "test": "test"
   },
@@ -14,15 +14,15 @@
     "url": "https://github.com/qawemlilo/crushit.git"
   },
   "keywords": [
-    "script minifier", "compressor", "optimizer"
+    "script minifier", "compressor", "optimizer", "build tool"
   ],
   "author": "Qawelesizwe Mlilo",
   "license": "MIT",
   "dependencies": {
-    "request": "~2.12.0",
-    "cheerio": "~0.10.3",
+    "request": "~2.27.0",
+    "cheerio": "~0.12.4",
     "uglify-js": "~2.2.3",
-    "commander": "~1.1.1"
+    "commander": "~2.1.0"
   },
   "preferGlobal": true,
   "devDependencies": {
