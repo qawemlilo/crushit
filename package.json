@@ -14,14 +14,17 @@
     "url": "https://github.com/qawemlilo/crushit.git"
   },
   "keywords": [
-    "script minifier", "compressor", "optimizer", "build tool"
+    "script minifier",
+    "compressor",
+    "optimizer",
+    "build tool"
   ],
   "author": "Qawelesizwe Mlilo",
   "license": "MIT",
   "dependencies": {
     "request": "~2.27.0",
     "cheerio": "~0.12.4",
-    "uglify-js": "~2.2.3",
+    "uglify-js": "~2.2.5",
     "commander": "~2.1.0"
   },
   "preferGlobal": true,
@@ -29,6 +32,8 @@
     "mocha": "~1.7.4",
     "should": "~1.2.1"
   },
-  "bin": { "crushit": "bin/crushit" },
+  "bin": {
+    "crushit": "bin/crushit"
+  },
   "engine": "node >= 0.8.9"
 }

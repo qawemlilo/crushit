@@ -1,12 +1,38 @@
 
 var should = require('should'),
-    CrushIt = require('../index');
+    CrushIt = require('../index'),
+    fs = require('fs'),
+    path = require('path'),
+    http = require('http'),
+    localhost = 'http://localhost:8071',
+    instance;
 
 describe('CrushIt', function() {
-    /*
+    var html = fs.readFileSync(path.join(__dirname, 'html.html'));
+    
+    // create a server
+    before(function(done) {
+        instance = http.createServer(function(req, res) {
+            res.writeHead(200, {
+                'Content-Type': 'text/html'
+            })
+            res.end(html);
+        }).listen(8071);
+        instance.on("listening", function() {
+            console.log("testing server 2 is up");
+            done();
+        });
+    });
+    
+    after(function(done){
+      instance.close();
+      console.log("testing 2 server stopped");
+      done();
+    });
+    
     describe('#crushScripts with options specified', function() {
-        it('should load all scripts from http://www.google.co.za and call my custom onComplete method', function(done) {
-            CrushIt.crushScripts('http://www.google.co.za', {
+        it('should load all scripts from ' + localhost + ' and call my custom onComplete method', function(done) {
+            CrushIt.crushScripts(localhost, {
                 beautify: false,
                 
                 comments: false,
@@ -14,29 +40,10 @@ describe('CrushIt', function() {
                 max: false, 
                 
                 onComplete: function(error, code) {
-                    var logs;
-                    
-                    if (error) {
-                        console.log(error.msg); 
-                    }
-                    else {
-                        console.log('Success! Custon onComplete method called!');
-                        CrushIt.getLogs().should.not.be.empty;
-                    }
+                    error.should.be.false;
                     done();
                 }
             });
-        });
-    });*/
-    
-    
-    describe('#crushScripts without options specified', function() {
-        it('should load all scripts from http://www.google.co.za', function(done) {
-            var result = CrushIt.crushScripts('http://www.google.co.za');
-            
-            result.should.be.false;
-            
-            done();
         });
     });
 

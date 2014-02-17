@@ -8,7 +8,8 @@ commander
   .version('0.2.5')
   .usage('[options] <url ...>')
   .option('-b, --beautify', 'Beautify code? Default [false]')
-  .option('-m, --max', 'Perform maximum optimisation? Default [false]')   
+  .option('-m, --max', 'Perform maximum optimisation? Default [false]') 
+  .option('-man, --mangle', 'Mangle names? Default [false]')  
   .option('-c, --comments', 'Include comments in output? Default [false]')
   .parse(process.argv);
  
@@ -25,7 +26,7 @@ if (commander.args.length > 0) {
         max: !!(commander.max),
         directory: process.cwd(),
         comments: !!(commander.comments),
-        strict: !!(commander.strict),
+        mangle: !!(commander.mangle),
         beautify: !!(commander.beautify)
     });    
 }
