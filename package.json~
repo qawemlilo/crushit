@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "mocha test/main.js test/app.js",
-    "jshint": "node node_modules/jshint/bin/jshint lib/main.js"
+    "jshint": "node node_modules/jshint/bin/jshint lib/main.js bin/crushIt"
   },
   "repository": {
     "type": "git",

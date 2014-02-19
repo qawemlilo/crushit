@@ -99,7 +99,7 @@ CrushIt.prototype = {
                         self.scripts.push({type: 'absolute', data: src});
                         i++;
                     
-                        console.log(' > found external script(' + i + ') - ' + path.basename(src));
+                        console.log(' found external script(' + i + ') - ' + path.basename(src));
                     } 
                     else {
                         var inline = $(this).text();
