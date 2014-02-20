@@ -90,24 +90,24 @@ callback - (Function) Callback function that takes 2 arguments, the first one is
 <h2>
 <a name="program-example" class="anchor" href="#program-example"><span class="octicon octicon-link"></span></a>Program Example</h2>
 
-<pre><code>var crushit = require("crushit");
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">crushit</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"crushit"</span><span class="p">);</span>
 
-crushit.squeeze({
-    website: "http://www.ragingflame.co.za",
-    comments: false,
-    beatify: false,
-    mangle: true,
-    max: true,
-}, 
-function (error, code) {
-    if (error) {
-        console.log(error.msg);   
-    }
-    else {
-        console.log(code);
-    }
-});
-</code></pre>
+<span class="nx">crushit</span><span class="p">.</span><span class="nx">squeeze</span><span class="p">({</span>
+    <span class="nx">website</span><span class="o">:</span> <span class="s2">"http://www.ragingflame.co.za"</span><span class="p">,</span>
+    <span class="nx">comments</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">beatify</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">mangle</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">max</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">},</span> 
+<span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>   
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">code</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
 
 <h2>
 <a name="short-code" class="anchor" href="#short-code"><span class="octicon octicon-link"></span></a>Short Code</h2>
@@ -118,7 +118,7 @@ function (error, code) {
 
 crushit.squeeze("http://www.ragingflame.co.za", function (error, code) {
     if (error) {
-        console.log(error.msg);   
+        console.error(error);   
     }
     else {
         console.log(code);
