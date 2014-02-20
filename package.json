@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "mocha test/main.js test/app.js",
-    "jshint": "node node_modules/jshint/bin/jshint lib/main.js"
+    "jshint": "jshint lib/crushit.js"
   },
   "repository": {
     "type": "git",
@@ -23,16 +23,16 @@
   "author": "Qawelesizwe Mlilo",
   "license": "MIT",
   "dependencies": {
-    "request": "~2.27.0",
-    "cheerio": "~0.12.4",
-    "uglify-js": "~2.2.5",
-    "commander": "~2.1.0"
+    "request": "~2.34.0",
+    "cheerio": "latest",
+    "uglify-js": "latest",
+    "commander": "latest"
   },
   "preferGlobal": true,
   "devDependencies": {
-    "mocha": "~1.7.4",
-    "should": "~1.2.1",
-    "jshint": "~2.4.3"
+    "mocha": "latest",
+    "should": "latest",
+    "jshint": "latest"
   },
   "bin": {
     "crushit": "bin/crushit"

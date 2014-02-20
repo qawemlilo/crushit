@@ -1,6 +1,6 @@
 # CrushIt
 
-CrushIt is a commandline tool for compiling, concatenating, and minifying scripts from a web page. I wrote CrushIt to make it easy to optimize my code for use in production. 
+CrushIt is a commandline tool for crawling web pages and compiling scripts.
 
 [![Build Status](https://travis-ci.org/qawemlilo/crushit.png)](https://travis-ci.org/qawemlilo/crushit)
 
@@ -13,7 +13,7 @@ npm install -g crushit
 ## Usage
 ```
 # Basic usage
-crushit [options] [url]
+crushit [options] [url] [file]
 
 
 ## Beautify output code 
@@ -25,30 +25,35 @@ crushit -c [url]
 
 
 ## Perform maximum optimisation
-crushit -m [url]
+crushit -x [url] [output filename]
 
 
 ## Beautify output code and include comments
 crushit -bc [url]
 ```
 
-## CLI Example
+## CLI Examples
 ```
-# Compiling scripts from my website
-crushit http://www.rflab.co.za
+# Compiling scripts from my website with default options
+crushit http://www.ragingflame.co.za
+
+# Compiling scripts from my website with options and specifying an output file
+crushit -xm http://www.ragingflame.co.za crushed.js
 ```
 
 ## You can also include CrushIt in your node programs
 ```
 var crushit = require("crushit");
 
-crushit.crushScripts(url, options);
+crushit.squeeze(options, callback);
 
 # options
-beatify    - Beautify output code
-max     - Perform maximum optimisation
-comments   - Include comments in the output code
-onComplete - Callback function that takes on argument
+website  - (String)   Web page URL
+comments - (Boolean)  Keep comments
+beatify  - (Boolean)  Beautify output code
+mangle   - (Boolean)  Mangle variable names
+max      - (Boolean)  Perform maximum optimisation
+callback - (Function) Callback function that takes 2 arguments, the first one is an error flag or object and the second one is the output code
 ```
 
 
@@ -56,29 +61,41 @@ onComplete - Callback function that takes on argument
 ```
 var crushit = require("crushit");
 
-crushit.crushScripts("http://www.rflab.co.za", {
-    beautify: true,
-    
-    max: false,
-    
-    comments: true,
-    
-    onComplete: function (error, code) {
-        if (error) {
-            console.log(error.msg);   
-        }
-        else {
-            console.log(code);
-        }
+crushit.squeeze({
+    website: "http://www.ragingflame.co.za",
+    comments: false,
+    beatify: false,
+    mangle: true,
+    max: true,
+}, 
+function (error, code) {
+    if (error) {
+        console.log(error.msg);   
+    }
+    else {
+        console.log(code);
     }
 });
 ```
 
 
-## To Do
+## Short Code
 
-- Add css minification
-- Write better docs
+The `options` argument may also be a string variable
+```
+var crushit = require("crushit");
+
+crushit.squeeze("http://www.ragingflame.co.za", function (error, code) {
+    if (error) {
+        console.log(error.msg);   
+    }
+    else {
+        console.log(code);
+    }
+});
+```
+
+
 
 ## License
 

@@ -1,24 +1,26 @@
 #!/usr/bin/env node
 
-var crushIt = require('../lib/main'),
+var crushIt = require('../lib/crushit'),
     commander = require('commander'),
     packagejson = require('../package.json'),
     path = require('path'),
     fs = require('fs'),
     directory = process.cwd(),
-    website = '';
+    website = '',
+    outputfile = '';
     
 commander
   .version(packagejson.version)
-  .usage('[options] <url ...>')
+  .usage('[options] <url ...> <file ...>')
   .option('-b, --beautify', 'Beautify code? Default [false]')
-  .option('-m, --max', 'Perform maximum optimisation? Default [false]')
-  .option('-man, --mangle', 'Mangle names? Default [false]')    
+  .option('-x, --max', 'Perform maximum optimisation? Default [false]')
+  .option('-m, --mangle', 'Mangle names? Default [false]')    
   .option('-c, --comments', 'Include comments in output? Default [false]')
   .parse(process.argv);
  
 if (commander.args.length > 0) {
     website = commander.args[0];
+    outputfile = commander.args[1] || 'script_' + (new Date().getTime()) + '.js'; 
     
     console.log('Reading scripts from: ');
     console.log('  - %s', website); 
@@ -38,15 +40,14 @@ if (commander.args.length > 0) {
             throw error;
         }
         else {
-            var filename = path.join(directory, 'script_' + (new Date().getTime()) + '.js');
+            var filename = path.join(directory, outputfile.toString());
         
             if (code) {
-                fs.writeFile(filename, code, 'utf8', function () {
-                    crushIt.echoMsg('Success!! Compiled script saved in ' + path.basename(filename));
-                });
+                fs.writeFileSync(filename, code, 'utf8');
+                crushIt.echoMsg('Complete: Compiled scripts saved in ' + outputfile);
             }
             else {
-                crushIt.echoMsg('Scripts not found!');
+                crushIt.echoMsg('Error: Code not found!');
             }
         }
     });    

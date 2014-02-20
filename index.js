@@ -1,2 +1,2 @@
 
-module.exports = require('./lib/app');
+module.exports = require('./lib/crushit');
