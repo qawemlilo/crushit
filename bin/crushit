@@ -36,6 +36,8 @@ if (commander.args.length > 0) {
         beautify: !!(commander.beautify)
     }, 
     function (error, code) {
+        "use strict";
+        
         if (error) {
             throw error;
         }

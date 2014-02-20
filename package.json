@@ -1,10 +1,13 @@
 {
   "name": "crushit",
-  "version": "0.2.5",
-  "description": "Crushit is a build tool for concatenating and minifying your JavaScipt for production",
+  "version": "0.3.0",
+  "description": "CrushIt is a commandline tool for crawling web pages and compiling scripts",
+  "homepage": "http://qawemlilo.github.io/crushit/",
   "main": "bin/crushit",
   "directories": {
-    "test": "test"
+    "test": "test",
+    "lib": "lib",
+    "bin": "bin"
   },
   "scripts": {
     "test": "npm run jshint && node node_modules/mocha/bin/mocha test",
@@ -24,9 +27,9 @@
   "license": "MIT",
   "dependencies": {
     "request": "~2.34.0",
-    "cheerio": "latest",
-    "uglify-js": "latest",
-    "commander": "latest"
+    "cheerio": "~0.13.1",
+    "uglify-js": "~2.4.12",
+    "commander": "~2.1.0"
   },
   "preferGlobal": true,
   "devDependencies": {
