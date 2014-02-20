@@ -53,6 +53,7 @@ comments - (Boolean)  Keep comments
 beatify  - (Boolean)  Beautify output code
 mangle   - (Boolean)  Mangle variable names
 max      - (Boolean)  Perform maximum optimisation
+
 callback - (Function) Callback function that takes 2 arguments, the first one is an error flag or object and the second one is the output code
 ```
 
@@ -66,11 +67,11 @@ crushit.squeeze({
     comments: false,
     beatify: false,
     mangle: true,
-    max: true,
+    max: true
 }, 
 function (error, code) {
     if (error) {
-        console.log(error.msg);   
+        console.error(error);   
     }
     else {
         console.log(code);
@@ -87,7 +88,7 @@ var crushit = require("crushit");
 
 crushit.squeeze("http://www.ragingflame.co.za", function (error, code) {
     if (error) {
-        console.log(error.msg);   
+        console.error(error);   
     }
     else {
         console.log(code);
