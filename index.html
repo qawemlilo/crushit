@@ -28,7 +28,7 @@
 
     <div class="container">
       <section id="main_content">
-        <p>CrushIt is a commandline tool for crawling web pages and compiling scripts. I wrote CrushIt to make it easy to optimize my scripts for use in production. </p>
+        <p>CrushIt is a commandline tool for crawling web pages and compiling scripts.</p>
 
 <p><a href="https://travis-ci.org/qawemlilo/crushit"><img src="https://travis-ci.org/qawemlilo/crushit.png" alt="Build Status"></a></p>
 
@@ -42,7 +42,7 @@
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <pre><code># Basic usage
-crushit [options] [url]
+crushit [options] [url] [file]
 
 
 ## Beautify output code 
@@ -54,7 +54,7 @@ crushit -c [url]
 
 
 ## Perform maximum optimisation
-crushit -m [url]
+crushit -x [url] [output filename]
 
 
 ## Beautify output code and include comments
@@ -62,10 +62,13 @@ crushit -bc [url]
 </code></pre>
 
 <h2>
-<a name="cli-example" class="anchor" href="#cli-example"><span class="octicon octicon-link"></span></a>CLI Example</h2>
+<a name="cli-examples" class="anchor" href="#cli-examples"><span class="octicon octicon-link"></span></a>CLI Examples</h2>
 
-<pre><code># Compiling scripts from my website
+<pre><code># Compiling scripts from my website with default options
 crushit http://www.ragingflame.co.za
+
+# Compiling scripts from my website with options and specifying an output file
+crushit -xm http://www.ragingflame.co.za crushed.js
 </code></pre>
 
 <h2>
@@ -73,37 +76,55 @@ crushit http://www.ragingflame.co.za
 
 <pre><code>var crushit = require("crushit");
 
-crushit.crushScripts(url, options);
+crushit.squeeze(options, callback);
 
 # options
-beatify    - Beautify output code
-max     - Perform maximum optimisation
-comments   - Include comments in the output code
-onComplete - Callback function that takes on argument
+website  - (String)   Web page URL
+comments - (Boolean)  Keep comments
+beatify  - (Boolean)  Beautify output code
+mangle   - (Boolean)  Mangle variable names
+max      - (Boolean)  Perform maximum optimisation
+callback - (Function) Callback function that takes 2 arguments, the first one is an error flag or object and the second one is the output code
 </code></pre>
 
 <h2>
 <a name="program-example" class="anchor" href="#program-example"><span class="octicon octicon-link"></span></a>Program Example</h2>
 
-<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">crushit</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"crushit"</span><span class="p">);</span>
+<pre><code>var crushit = require("crushit");
 
-<span class="nx">crushit</span><span class="p">.</span><span class="nx">crushScripts</span><span class="p">(</span><span class="s2">"http://www.ragingflame.co.za"</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">beautify</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+crushit.squeeze({
+    website: "http://www.ragingflame.co.za",
+    comments: false,
+    beatify: false,
+    mangle: true,
+    max: true,
+}, 
+function (error, code) {
+    if (error) {
+        console.log(error.msg);   
+    }
+    else {
+        console.log(code);
+    }
+});
+</code></pre>
 
-    <span class="nx">max</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+<h2>
+<a name="short-code" class="anchor" href="#short-code"><span class="octicon octicon-link"></span></a>Short Code</h2>
 
-    <span class="nx">comments</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<p>The <code>options</code> argument may also be a string variable</p>
 
-    <span class="nx">onComplete</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>   
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">code</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">});</span>
-</pre></div>
+<pre><code>var crushit = require("crushit");
+
+crushit.squeeze("http://www.ragingflame.co.za", function (error, code) {
+    if (error) {
+        console.log(error.msg);   
+    }
+    else {
+        console.log(code);
+    }
+});
+</code></pre>
 
 <h2>
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
