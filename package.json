@@ -1,9 +1,9 @@
 {
   "name": "crushit",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "CrushIt is a commandline tool for crawling web pages and compiling scripts",
   "homepage": "http://qawemlilo.github.io/crushit/",
-  "main": "bin/crushit",
+  "main": "index.js",
   "directories": {
     "test": "test",
     "lib": "lib",
