@@ -7,8 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test/main.js test/app.js",
-    "jshint": "jshint lib/crushit.js"
+    "test": "npm run jshint && node node_modules/mocha/bin/mocha test",
+    "jshint": "node node_modules/jshint/bin/jshint lib/helper.js lib/crushit.js"
   },
   "repository": {
     "type": "git",
