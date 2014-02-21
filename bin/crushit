@@ -22,6 +22,8 @@ if (commander.args.length > 0) {
     website = commander.args[0];
     outputfile = commander.args[1] || 'script_' + (new Date().getTime()) + '.js'; 
     
+    crushIt =  new  crushIt();
+    
     console.log('Reading scripts from: ');
     console.log('  - %s', website); 
     console.log('');

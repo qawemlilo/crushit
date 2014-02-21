@@ -43,9 +43,11 @@ crushit -xm http://www.ragingflame.co.za crushed.js
 
 ## You can also include CrushIt in your node programs
 ```
-var crushit = require("crushit");
+var crushIt = require("crushit");
 
-crushit.squeeze(options, callback);
+crushIt =  new crushIt();
+
+crushIt.squeeze(options, callback);
 
 # options
 website  - (String)   Web page URL
@@ -60,9 +62,11 @@ callback - (Function) Callback function that takes 2 arguments, the first one is
 
 ## Program Example
 ```
-var crushit = require("crushit");
+var crushIt = require("crushit");
 
-crushit.squeeze({
+crushIt =  new crushIt();
+
+crushIt.squeeze({
     website: "http://www.ragingflame.co.za",
     comments: false,
     beatify: false,
@@ -84,9 +88,11 @@ function (error, code) {
 
 The `options` argument may also be a string variable
 ```
-var crushit = require("crushit");
+var crushIt = require("crushit");
 
-crushit.squeeze("http://www.ragingflame.co.za", function (error, code) {
+crushIt =  new crushIt();
+
+crushIt.squeeze("http://www.ragingflame.co.za", function (error, code) {
     if (error) {
         console.error(error);   
     }
@@ -94,6 +100,13 @@ crushit.squeeze("http://www.ragingflame.co.za", function (error, code) {
         console.log(code);
     }
 });
+```
+
+
+## Testing
+
+```
+npm test
 ```
 
 

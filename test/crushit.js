@@ -10,8 +10,11 @@ var should = require('should'),
 
 describe('crushIt', function() {
     "use strict";
+
     var html = fs.readFileSync(path.join(__dirname, 'assets', 'html.html'));
     var script = fs.readFileSync(path.join(__dirname, 'assets', 'script.js'));
+    
+    crushIt = new crushIt();
     
     // create a server
     before(function(done) {
