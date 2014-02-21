@@ -1,6 +1,6 @@
 {
   "name": "crushit",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "CrushIt is a commandline tool for crawling web pages and compiling scripts",
   "homepage": "http://qawemlilo.github.io/crushit/",
   "main": "index.js",
@@ -26,7 +26,6 @@
   "author": "Qawelesizwe Mlilo",
   "license": "MIT",
   "dependencies": {
-    "request": "~2.34.0",
     "cheerio": "~0.13.1",
     "uglify-js": "~2.4.12",
     "commander": "~2.1.0"
