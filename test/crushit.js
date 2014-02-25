@@ -4,7 +4,6 @@ var should = require('should'),
     fs = require('fs'),
     path = require('path'),
     http = require('http'),
-    url = require('url'),
     localhost = 'http://localhost:8070',
     instance;
 
@@ -25,7 +24,7 @@ describe('crushIt', function() {
             
             var route = path.basename(req.url);
 
-            if (route == 'script.js') {
+            if (route === 'script.js') {
                 res.end(script);
             }
             else {

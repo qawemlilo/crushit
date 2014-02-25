@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var crushIt = require('../lib/crushit'),
+    chalk = require('chalk'),
     commander = require('commander'),
     packagejson = require('../package.json'),
     path = require('path'),
@@ -24,8 +25,9 @@ if (commander.args.length > 0) {
     
     crushIt =  new  crushIt();
     
-    console.log('Reading scripts from: ');
-    console.log('  - %s', website); 
+    console.log('');
+    console.log('Compiling scripts from: ');
+    console.log('  - %s', chalk.yellow(website)); 
     console.log('');
     
     
@@ -48,10 +50,10 @@ if (commander.args.length > 0) {
         
             if (code) {
                 fs.writeFileSync(filename, code, 'utf8');
-                crushIt.echoMsg('Complete: Compiled scripts saved in ' + outputfile);
+                crushIt.echoMsg('compiled scripts saved in ' + chalk.yellow(outputfile), 'success');
             }
             else {
-                crushIt.echoMsg('Error: Code not found!');
+                crushIt.echoMsg('code not found!', 'error');
             }
         }
     });    
