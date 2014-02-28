@@ -40,3 +40,14 @@ describe('#urlPath', function() {
         path.should.be.eql('/home');
     });
 });
+
+
+describe('#isHttps', function() {
+    it('should extracts a pathname from a url', function() {
+        var url_one = helper.isHttps('http://www.google.com');
+        var url_two = helper.isHttps('https://www.google.com');        
+        
+        url_one.should.be.false;
+        url_two.should.be.true;
+    });
+});
